@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocodile Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #004d40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            background-color: #004d40;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        .fact-display {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #004d40;
+            border-radius: 5px;
+            background-color: #ffffff;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .fact-display.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crocodile Facts</h1>
+        <button id="factButton">Show a Random Fact</button>
+        <div id="factDisplay" class="fact-display">
+            <h2 id="factTitle"></h2>
+            <p id="factText"></p>
+        </div>
+    </div>
+    <script>
+        const facts = [
+            {
+                title: "Longest-living reptile",
+                text: "Crocodiles can live up to 70 years or more in the wild."
+            },
+            {
+                title: "Ancient species",
+                text: "Fossil records show that crocodilians have remained largely unchanged for over 200 million years."
+            },
+            {
+                title: "Strongest bite",
+                text: "Crocodiles have the strongest bite of any animal, with some species exerting a bone-crushing force of up to 5,000 pounds per square inch (psi)."
+            },
+            {
+                title: "Excellent swimmers",
+                text: "Crocodiles are excellent swimmers and can hold their breath for up to an hour."
+            },
+            {
+                title: "Good parents",
+                text: "Female crocodiles are devoted mothers, often caring for their young for several years after they hatch."
+            },
+            {
+                title: "Saltwater tolerance",
+                text: "Some species of crocodiles can live in saltwater environments, unlike most other reptiles."
+            },
+            {
+                title: "Speed demons",
+                text: "Crocodiles are relatively fast on land, with some species reaching speeds of up to 18 miles per hour (mph)."
+            },
+            {
+                title: "Large and in charge",
+                text: "The saltwater crocodile is the largest reptile on earth, growing up to 23 feet (7 meters) in length."
+            },
+            {
+                title: "Good communicators",
+                text: "Crocodiles use a variety of vocalizations, including grunts, growls, and hisses, to communicate with each other."
+            },
+            {
+                title: "Important ecological role",
+                text: "Crocodiles play a vital role in maintaining the health of their ecosystems, helping to regulate prey populations and maintain nutrient cycles."
+            }
+        ];
+
+        document.getElementById('factButton').addEventListener('click', () => {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('factTitle').textContent = randomFact.title;
+            document.getElementById('factText').textContent = randomFact.text;
+            document.getElementById('factDisplay').classList.add('show');
+        });
+    </script>
+</body>
+</html>
